@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brilliant Researchers Africa</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #003366;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header img {
+            width: 120px;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px auto;
+        }
+
+        nav {
+            background-color: #004080;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #004080;
+            border-bottom: 2px solid #004080;
+            padding-bottom: 10px;
+        }
+
+        .pillar-list {
+            margin-top: 20px;
+        }
+
+        .pillar-item {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 5px solid #004080;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: 20px auto;
+        }
+
+        .mySlides {
+            display: none;
+            width: 100%;
+            border: 2px solid #004080;
+        }
+
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="12.jpeg" alt="Brilliant Researchers Africa Logo">
+    <h1>Brilliant Researchers Africa</h1>
+    <p>Empowering African Innovation Through Applied Scientific Research</p>
+</header>
+
+<nav>
+    <a href="about.html">About</a>
+    <a href="values.html">Core Values</a>
+    <a href="vision.html">Vision</a>
+    <a href="mission.html">Mission</a>
+    <a href="pillars.html">Pillars</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<section>
+    <h2>Welcome</h2>
+    <p>
+        Welcome to <strong>Brilliant Researchers Africa (BRA)</strong>, a pioneering hub for scientific excellence, collaboration, and innovation across the African continent.
+        We are dedicated to nurturing a research-driven culture that addresses real-world challenges while promoting sustainable development.
+    </p>
+    <p>
+        Our platform connects aspiring researchers, professionals, and institutions, creating a vibrant ecosystem where ideas flourish and impact is measurable.
+        Whether you're a student, academic, or industry leader, BRA is your space to grow, share, and transform the future of Africa through applied research.
+    </p>
+
+    <h2>Our Activities</h2>
+    <div class="slideshow-container">
+        <img class="mySlides" src="13.jpg" alt="Slide 1">
+        <img class="mySlides" src="14.jpg" alt="Slide 2">
+        <img class="mySlides" src="15.jpg" alt="Slide 3">
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 Brilliant Researchers Africa. All rights reserved.</p>
+</footer>
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        const slides = document.getElementsByClassName("mySlides");
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1; }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 3000); // 3 seconds
+    }
+</script>
+
+</body>
+</html>
