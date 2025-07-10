@@ -1,146 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Brilliant Researchers Africa</title>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact - Brilliant Researchers Africa</title>
+  <!-- Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-    <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
+    header {
+      background-color: #003366;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      user-select: none;
+    }
 
-        header {
-            background-color: #003366;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
+    nav {
+      background-color: #004080;
+      padding: 10px;
+      text-align: center;
+      user-select: none;
+    }
 
-        nav {
-            background-color: #004080;
-            padding: 10px;
-            text-align: center;
-        }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
 
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    nav a:hover,
+    nav a.active {
+      color: #ffd700;
+      text-decoration: underline;
+    }
 
-        section {
-            padding: 40px 20px;
-            max-width: 900px;
-            margin: auto;
-        }
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 40px auto;
+      flex-grow: 1;
+    }
 
-        h2 {
-            color: #004080;
-            border-bottom: 2px solid #004080;
-            padding-bottom: 10px;
-        }
+    h2 {
+      color: #004080;
+      border-bottom: 2px solid #004080;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+      user-select: none;
+    }
 
-        .contact-box {
-            background: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-left: 5px solid #004080;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
+    .contact-box {
+      background: #fff;
+      padding: 20px 25px;
+      margin-bottom: 20px;
+      border-left: 5px solid #004080;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      border-radius: 4px;
+    }
 
-        .social-icons {
-            margin-top: 30px;
-        }
+    .contact-box.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-        .social-icons p {
-            margin: 5px 0;
-            font-size: 16px;
-        }
+    .contact-box h3 {
+      margin-top: 0;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #004080;
+      user-select: none;
+    }
 
-        .social-icons i {
-            margin-right: 10px;
-            color: #004080;
-        }
+    .contact-box p {
+      margin: 6px 0;
+      font-size: 16px;
+    }
 
-        footer {
-            background-color: #003366;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
+    .contact-box a {
+      color: #004080;
+      text-decoration: none;
+    }
 
-        a {
-            color: #004080;
-            text-decoration: none;
-        }
+    .contact-box a:hover {
+      text-decoration: underline;
+    }
 
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    .social-icons {
+      margin-top: 30px;
+      user-select: none;
+    }
+
+    .social-icons h3 {
+      color: #004080;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+    }
+
+    .social-icons p {
+      margin: 5px 0;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .social-icons i {
+      color: #004080;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      user-select: none;
+    }
+  </style>
 </head>
 <body>
-
-<header>
+  <!-- HEADER -->
+  <header>
     <h1>Brilliant Researchers Africa</h1>
     <p>Empowering African Innovation Through Applied Scientific Research</p>
-</header>
+  </header>
 
-<nav>
+  <nav>
     <a href="index.html">Home</a>
-    <a href="about.html">About</a>
+    <a href="about.html">About US</a>
     <a href="values.html">Core Values</a>
-    <a href="vision.html">Vision</a>
-    <a href="mission.html">Mission</a>
-    <a href="pillars.html">Pillars</a>
-    <a href="contact.html">Contact</a>
-</nav>
-
-<section>
+    <a href="vision.html" class="active"> OUR Vision</a>
+    <a href="mission.html"> OUR Mission</a>
+    <a href="pillars.html"> OUR Pillars</a>
+    <a href="contact.html">Contact US</a>
+  </nav>
+  <!-- MAIN CONTENT -->
+  <section>
     <h2>Contact Information</h2>
 
     <div class="contact-box">
-        <h3><i class="fas fa-user-tie"></i> Chief Executive Officer</h3>
-        <p><strong>Name:</strong> ENG IGIRANEZA Meschack</p>
-        <p><strong><i class="fas fa-phone-alt"></i> Phone:</strong> +250 788 474 110</p>
+      <h3><i class="fas fa-user-tie"></i> Chief Executive Officer</h3>
+      <p><strong>Name:</strong> ENG IGIRANEZA Meschack</p>
+      <p><strong><i class="fas fa-phone-alt"></i> Phone:</strong> <a href="tel:+250788474110">+250 788 474 110</a></p>
     </div>
 
     <div class="contact-box">
-        <h3><i class="fas fa-flask"></i> Chief Research Officer</h3>
-        <p><strong>Name:</strong> NTAKIRUTIMANA Gisa Emmanuel</p>
-        <p><strong><i class="fas fa-phone-alt"></i> Phone:</strong> +250 788 896 315</p>
+      <h3><i class="fas fa-flask"></i> Chief Research Officer</h3>
+      <p><strong>Name:</strong> NTAKIRUTIMANA Gisa Emmanuel</p>
+      <p><strong><i class="fas fa-phone-alt"></i> Phone:</strong> <a href="tel:+250788896315">+250 788 896 315</a></p>
     </div>
 
     <div class="contact-box">
-        <h3><i class="fas fa-calculator"></i> Accountant</h3>
-        <p><strong>Name:</strong> NTAKIRUTIMANA Gisa Emmanuel</p>
-        <p><strong><i class="fas fa-phone-alt"></i> Phone:</strong> +250 787 572 661</p>
+      <h3><i class="fas fa-calculator"></i> Accountant</h3>
+      <p><strong>Name:</strong> NTAKIRUTIMANA Gisa Emmanuel</p>
+      <p><strong><i class="fas fa-phone-alt"></i> Phone:</strong> <a href="tel:+250787572661">+250 787 572 661</a></p>
     </div>
 
     <div class="social-icons">
-        <h3><i class="fas fa-share-alt"></i> Get in Touch</h3>
-        <p><i class="fas fa-globe"></i> Website: <a href="http://www.brafrica.org" target="_blank">www.brafrica.org</a></p>
-        <p><i class="fas fa-globe-africa"></i> Alt Website: <a href="http://www.siladr.rw" target="_blank">www.siladr.rw</a></p>
-        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:brilliantresearchersafrica@gmail.com">brilliantresearchersafrica@gmail.com</a></p>
-        <p><i class="fas fa-envelope-open"></i> Alt Email: <a href="mailto:ntakirutimanagisaemmanuel@gmail.com">ntakirutimanagisaemmanuel@gmail.com</a></p>
-        <p><i class="fab fa-facebook"></i> Facebook: <a href="https://facebook.com/BRILLIANTRESEARCHERSAFRICA" target="_blank">BRILLIANT RESEARCHERS AFRICA</a></p>
-        <p><i class="fab fa-instagram"></i> Instagram: <a href="https://instagram.com/twumamohouses" target="_blank">@twumamohouses</a></p>
-        <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/250788896315" target="_blank">+250 788 896 315</a></p>
-        <p><i class="fab fa-whatsapp"></i> WhatsApp (Alt): <a href="https://wa.me/250787572661" target="_blank">+250 787 572 661</a></p>
-        <p><i class="fab fa-instagram-square"></i> Instagram Page: <a href="https://instagram.com/siladr_r_a" target="_blank">@siladr_r_a</a></p>
+      <h3><i class="fas fa-share-alt"></i> Get in Touch</h3>
+      <p><i class="fas fa-globe"></i> Website: <a href="http://www.brafrica.org" target="_blank">www.brafrica.org</a></p>
+      <p><i class="fas fa-globe-africa"></i> Alt Website: <a href="http://www.siladr.rw" target="_blank">www.siladr.rw</a></p>
+      <p><i class="fas fa-envelope"></i> Email: <a href="mailto:brilliantresearchersafrica@gmail.com">brilliantresearchersafrica@gmail.com</a></p>
+      <p><i class="fas fa-envelope-open"></i> Alt Email: <a href="mailto:ntakirutimanagisaemmanuel@gmail.com">ntakirutimanagisaemmanuel@gmail.com</a></p>
+      <p><i class="fab fa-facebook"></i> Facebook: <a href="https://facebook.com/BRILLIANTRESEARCHERSAFRICA" target="_blank">BRILLIANT RESEARCHERS AFRICA</a></p>
+      <p><i class="fab fa-instagram"></i> Instagram: <a href="https://instagram.com/twumamohouses" target="_blank">@twumamohouses</a></p>
+      <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/250788896315" target="_blank">+250 788 896 315</a></p>
+      <p><i class="fab fa-whatsapp"></i> WhatsApp (Alt): <a href="https://wa.me/250787572661" target="_blank">+250 787 572 661</a></p>
+      <p><i class="fab fa-instagram-square"></i> Instagram Page: <a href="https://instagram.com/siladr_r_a" target="_blank">@siladr_r_a</a></p>
     </div>
-</section>
+  </section>
 
-<footer>
+  <!-- FOOTER -->
+  <footer>
     <p>&copy; 2025 Brilliant Researchers Africa. All rights reserved.</p>
-</footer>
+  </footer>
 
+  <!-- JAVASCRIPT -->
+  <script>
+    // Animate contact boxes
+    document.addEventListener('DOMContentLoaded', () => {
+      const boxes = document.querySelectorAll('.contact-box');
+      boxes.forEach((box, i) => {
+        setTimeout(() => {
+          box.classList.add('visible');
+        }, i * 300);
+      });
+
+      // Highlight active nav link
+      const navLinks = document.querySelectorAll('nav a');
+      const currentUrl = window.location.href;
+      navLinks.forEach(link => {
+        if (currentUrl.includes(link.getAttribute('href'))) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>

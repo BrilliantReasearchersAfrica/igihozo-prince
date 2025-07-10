@@ -1,47 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>About - Brilliant Researchers Africa</title>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f9f9f9; color: #333; }
-        header, footer { background-color: #003366; color: white; text-align: center; padding: 20px; }
-        nav { background-color: #004080; padding: 10px; text-align: center; }
-        nav a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; }
-        section { padding: 40px 20px; max-width: 1000px; margin: auto; }
-        h2 { color: #004080; border-bottom: 2px solid #004080; padding-bottom: 10px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us - Brilliant Researchers Africa</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #2a5298, #1cb5e0);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    nav {
+      margin-top: 20px;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    pre {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px 40px;
+      border-radius: 15px;
+      max-width: 700px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      font-size: 18px;
+      line-height: 1.8;
+      white-space: pre-wrap;
+      animation: fadeInUp 1.2s ease forwards;
+      opacity: 0;
+      transform: translateY(40px);
+      position: relative;
+      margin-top: 30px;
+    }
+
+    pre::first-line {
+      font-weight: 900;
+      font-size: 28px;
+      color: #ffd700;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    pre strong {
+      color: #ffa500;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    pre:hover {
+      box-shadow: 0 0 25px #ffd700, 0 0 40px #ffa500;
+      transition: box-shadow 0.5s ease;
+      cursor: default;
+    }
+
+    .sentence {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .sentence.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body>
 
-<header>
-    <h1>Brilliant Researchers Africa</h1>
-</header>
-
-<nav>
-    <a href="home.html">Home</a>
-    <a href="about.html">About</a>
+ <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About US</a>
     <a href="values.html">Core Values</a>
-    <a href="vision.html">Vision</a>
-    <a href="mission.html">Mission</a>
-    <a href="pillars.html">Pillars</a>
-    <a href="contact.html">Contact</a>
-</nav>
+    <a href="vision.html" class="active"> OUR Vision</a>
+    <a href="mission.html"> OUR Mission</a>
+    <a href="pillars.html"> OUR Pillars</a>
+    <a href="contact.html">Contact US</a>
+  </nav>
 
-<section>
-    <h2>About Us</h2>
-    <p>
-        Brilliant Researchers Africa (BRA) is a youth-led African community organization specializing in applied scientific research, circular materials engineering, and functional prototyping. 
-        BRA was officially registered as a non-governmental organization in Rwanda on September 4, 2024. 
-        It is headquartered at INATEK/Kibungo, Eastern Province. 
-        Founded by Eng. Iradukunda Emmanuel (BRA Country Coordinator & Chief Technical Officer), the organization is driven by a passionate team of young engineers and researchers from various technical backgrounds. 
-        BRA focuses on 4 key areas: Applied Scientific Research, Functional Prototyping, Circular Materials Engineering, and Disaster Risk & Fire Safety Systems.
-    </p>
-</section>
+  <!-- About Content -->
+  <pre id="about-text">
+ABOUT US
 
-<footer>
-    <p>&copy; 2025 Brilliant Researchers Africa. All rights reserved.</p>
-</footer>
+Brilliant Researchers Africa (BRA) a youth-led African community organization
 
+specializing in applied research, innovation, and sustainable development. Founded in September 4, 2024. by Eng IGIRANEZA Meschack an expert in Civil engineering Technology and a physicist and Material Scientist
+
+NTAKIRUTIMANA (Gisa) Emmanuel. BRA is committed to building a new era of science-driven problem solvers who transform Africa's local challenges into globally competitive solutions through: Engineering innovation, Applied research & prototyping and Youth empowerment & capacity building.
+  </pre>
+
+  <!-- Animation Script -->
+  <script>
+    const pre = document.getElementById('about-text');
+    const text = pre.textContent.trim();
+    const sentences = text.split(/(?<=\\.)\\s+|\\n+/);
+    pre.textContent = '';
+
+    sentences.forEach((sentence, i) => {
+      const span = document.createElement('span');
+      span.className = 'sentence';
+      span.textContent = sentence.trim() + (i !== sentences.length - 1 ? ' ' : '');
+      pre.appendChild(span);
+      if (i !== sentences.length - 1) pre.appendChild(document.createElement('br'));
+      if (i !== sentences.length - 2) pre.appendChild(document.createElement('br'));
+    });
+
+    const spans = pre.querySelectorAll('.sentence');
+    spans.forEach((span, index) => {
+      setTimeout(() => {
+        span.classList.add('visible');
+      }, 600 * index);
+    });
+  </script>
 </body>
 </html>

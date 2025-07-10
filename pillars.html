@@ -1,85 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Pillars - Brilliant Researchers Africa</title>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f9f9f9; color: #333; }
-        header, footer { background-color: #003366; color: white; text-align: center; padding: 20px; }
-        nav { background-color: #004080; padding: 10px; text-align: center; }
-        nav a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; }
-        section { padding: 40px 20px; max-width: 1000px; margin: auto; }
-        h2 { color: #004080; border-bottom: 2px solid #004080; padding-bottom: 10px; }
-        .pillar-item { background: white; padding: 20px; margin: 20px 0; border-left: 5px solid #004080; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Pillars - Brilliant Researchers Africa</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #283e51, #485563);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #003366;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      user-select: none;
+    }
+
+    nav {
+      background-color: #004080;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #ffd700;
+      text-decoration: underline;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px 40px;
+      border-radius: 15px;
+      max-width: 900px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      font-size: 18px;
+      line-height: 1.7;
+      white-space: pre-wrap;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease forwards;
+      position: relative;
+    }
+
+    .container::first-line {
+      font-weight: 900;
+      font-size: 28px;
+      color: #ffd700;
+      letter-spacing: 2px;
+      display: block;
+    }
+
+    .pillar-number {
+      font-weight: 700;
+      font-size: 20px;
+      color: #ffa500;
+      margin-top: 20px;
+      margin-bottom: 6px;
+    }
+
+    .pillar-title {
+      font-weight: 700;
+      font-size: 20px;
+      margin-bottom: 6px;
+      color: #ffd966;
+    }
+
+    .pillar-desc {
+      margin-bottom: 10px;
+    }
+
+    .quote {
+      font-style: italic;
+      color: #ffcc00;
+      margin-left: 20px;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .sentence {
+      opacity: 0;
+      display: inline;
+      transform: translateY(15px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .sentence.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .container:hover {
+      box-shadow: 0 0 25px #ffd700, 0 0 40px #ffa500;
+      transition: box-shadow 0.5s ease;
+      cursor: default;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
 
-<header>
+  <!-- HEADER -->
+  <header>
     <h1>Brilliant Researchers Africa</h1>
-</header>
-
+    <p>Empowering African Innovation Through Applied Scientific Research</p>
+  </header>
 <nav>
-    <a href="home.html">Home</a>
-    <a href="about.html">About</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About US</a>
     <a href="values.html">Core Values</a>
-    <a href="vision.html">Vision</a>
-    <a href="mission.html">Mission</a>
-    <a href="pillars.html">Pillars</a>
-    <a href="contact.html">Contact</a>
-</nav>
+    <a href="vision.html" class="active"> OUR Vision</a>
+    <a href="mission.html"> OUR Mission</a>
+    <a href="pillars.html"> OUR Pillars</a>
+    <a href="contact.html">Contact US</a>
+  </nav>
 
-<section>
-    <h2>Our Pillars</h2>
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="container" id="our-pillars">
+OUR PILLARS
 
-    <div class="pillar-item">
-        <h3>1. Applied Scientific Research & Functional Prototyping</h3>
-        <p>
-            We conduct original, evidence-based research that is aligned with goals tied to functional prototypes. 
-            Our objective is to produce scalable innovations that offer sustainable solutions to community problems.
-            <br><strong>Motto:</strong> “Where Prototypes meet Research”
-        </p>
+<div class="pillar">
+  <div class="pillar-number">1. Applied Scientific Research & Functional Prototyping:</div>
+  <div class="pillar-desc">We conduct problem-driven experimental research with a direct path to functional prototypes. Our work bridges laboratory theory with field applicability, ensuring innovations are technically robust, relevant, and engineered for scalability.</div>
+  <div class="quote">"Where hypotheses meet hardware."</div>
+</div>
+
+<div class="pillar">
+  <div class="pillar-number">2. Circular Materials Engineering & Waste Valorization:</div>
+  <div class="pillar-desc">BRA transforms waste streams into functional materials using principles of materials science, polymer chemistry, and thermochemical conversion. We engineer eco-composites, biochar, and bioplastics driving Africa's transition to a regenerative, zero-waste future.</div>
+  <div class="quote">"From landfill to lab bench to life."</div>
+</div>
+
+<div class="pillar">
+  <div class="pillar-number">3. Disaster Risk Technology & Fire Safety Systems:</div>
+  <div class="pillar-desc">Our research in chemical fire suppression and sensor integration leads to intelligent systems that autonomously detect, neutralize, and contain fire outbreaks. We prioritize rapid reaction kinetics, non-toxic compounds, and smart deployment mechanisms.</div>
+  <div class="quote">"Designing systems that activate before the crisis escalates."</div>
+</div>
+
+<div class="pillar">
+  <div class="pillar-number">4. Engineering Solutions for Resilience:</div>
+  <div class="pillar-desc">We prototype mechanical systems tailored to African environmental conditions, resource constraints, and production capacities. From agro-mechanization to energy devices, our engineering is context-sensitive, material-efficient, and designed for decentralized fabrication.</div>
+  <div class="quote">"Precision engineering, grounded in African realities."</div>
+</div>
+
+<div class="pillar">
+  <div class="pillar-number">5. Scientific Talent Acceleration & Technical Literacy:</div>
+  <div class="pillar-desc">Through immersive training, interdisciplinary mentorship, and English-for-STEM programs, BRA builds Africa's next generation of inventors, researchers, and scientific communicators. Our pedagogy combines theoretical rigor with hands-on execution.</div>
+  <div class="quote">"We don't just train scientists — we launch them."</div>
+</div>
     </div>
+  </main>
 
-    <div class="pillar-item">
-        <h3>2. Circular Materials Engineering & Waste Valorization</h3>
-        <p>
-            BRA empowers youth through training in functional material recovery and clean energy production. 
-            We are devoted to converting agricultural, plastic, and paper waste into value-added engineering materials 
-            for prototype development.
-        </p>
-    </div>
-
-    <div class="pillar-item">
-        <h3>3. Disaster Risk Technology & Fire Safety Systems</h3>
-        <p>
-            BRA is working to introduce affordable, innovative fire mitigation tools in neglected regions 
-            where community fire-related disasters remain under-addressed.
-        </p>
-    </div>
-
-    <div class="pillar-item">
-        <h3>4. Engineering Solutions for Resilience</h3>
-        <p>
-            We design context-specific innovations for environmentally challenged communities. 
-            BRA is currently running an “Engineering for Climate Resilience” program to support vulnerable communities 
-            against the climate crisis and disaster impact.
-        </p>
-    </div>
-
-    <div class="pillar-item">
-        <h3>5. Innovation Communication & Technical Literacy</h3>
-        <p>
-            BRA is launching a new “Research, Innovation, and English-for-STEM” program targeting young researchers and entrepreneurs, 
-            helping them access funding, communicate their innovations, and publish their work.
-            <br><strong>Quote:</strong> “We don’t train researchers; we launch them.”
-        </p>
-    </div>
-</section>
-
-<footer>
+  <!-- FOOTER -->
+  <footer>
     <p>&copy; 2025 Brilliant Researchers Africa. All rights reserved.</p>
-</footer>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    function animateContainer(containerId) {
+      const container = document.getElementById(containerId);
+
+      function wrapSentences(element) {
+        const text = element.textContent.trim();
+        const sentences = text.split(/(?<=\.)\s+/);
+        element.textContent = '';
+        sentences.forEach((sentence, i) => {
+          const span = document.createElement('span');
+          span.className = 'sentence';
+          span.textContent = sentence.trim() + (i !== sentences.length - 1 ? ' ' : '');
+          element.appendChild(span);
+        });
+      }
+
+      const descs = container.querySelectorAll('.pillar-desc, .quote');
+      descs.forEach(wrapSentences);
+
+      const spans = container.querySelectorAll('.sentence');
+      spans.forEach((span, i) => {
+        setTimeout(() => {
+          span.classList.add('visible');
+        }, i * 400);
+      });
+
+      container.style.opacity = 1;
+      container.style.transform = 'translateY(0)';
+    }
+
+    animateContainer('our-pillars');
+  </script>
 
 </body>
 </html>

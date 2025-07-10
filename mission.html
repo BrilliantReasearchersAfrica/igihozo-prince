@@ -1,45 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Mission - Brilliant Researchers Africa</title>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f9f9f9; color: #333; }
-        header, footer { background-color: #003366; color: white; text-align: center; padding: 20px; }
-        nav { background-color: #004080; padding: 10px; text-align: center; }
-        nav a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; }
-        section { padding: 40px 20px; max-width: 1000px; margin: auto; }
-        h2 { color: #004080; border-bottom: 2px solid #004080; padding-bottom: 10px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Missions - Brilliant Researchers Africa</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #4b6cb7, #182848);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #003366;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      user-select: none;
+    }
+
+    nav {
+      background-color: #004080;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #ffd700;
+      text-decoration: underline;
+    }
+
+    main {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px 40px;
+      border-radius: 15px;
+      max-width: 700px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      font-size: 18px;
+      line-height: 1.8;
+      white-space: pre-wrap;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease forwards;
+      position: relative;
+      color: #f0f0f0;
+    }
+
+    .container::first-line {
+      font-weight: 900;
+      font-size: 28px;
+      color: #ffd700;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .sentence {
+      opacity: 0;
+      display: inline;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .sentence.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .container:hover {
+      box-shadow: 0 0 25px #ffd700, 0 0 40px #ffa500;
+      transition: box-shadow 0.5s ease;
+      cursor: default;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
 
-<header>
+  <!-- HEADER -->
+  <header>
     <h1>Brilliant Researchers Africa</h1>
-</header>
+    <p>Empowering African Innovation Through Applied Scientific Research</p>
+  </header>
 
-<nav>
-    <a href="home.html">Home</a>
-    <a href="about.html">About</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About US</a>
     <a href="values.html">Core Values</a>
-    <a href="vision.html">Vision</a>
-    <a href="mission.html">Mission</a>
-    <a href="pillars.html">Pillars</a>
-    <a href="contact.html">Contact</a>
-</nav>
+    <a href="vision.html" class="active"> OUR Vision</a>
+    <a href="mission.html"> OUR Mission</a>
+    <a href="pillars.html"> OUR Pillars</a>
+    <a href="contact.html">Contact US</a>
+  </nav>
 
-<section>
-    <h2>Our Mission</h2>
-    <p>
-        To build a generation of African scientists and innovators equipped with practical skills, 
-        evidence-based thinking, and research excellence through applied research, 
-        inclusive mentorship, and the creation of sustainable and scalable technologies.
-    </p>
-</section>
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="container" id="our-missions">
+      OUR MISSIONS
 
-<footer>
+      To build a generation of African scientists and innovators equipped with practical skills, entrepreneurial thinking, and research excellence, through hands-on experimentation, inclusive mentorship, and the creation of sustainable and scalable technologies.
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
     <p>&copy; 2025 Brilliant Researchers Africa. All rights reserved.</p>
-</footer>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const container = document.getElementById('our-missions');
+    const text = container.textContent.trim();
+
+    const sentences = text.split(/(?<=\.)\s+|\n+/);
+
+    container.textContent = '';
+
+    sentences.forEach((sentence, i) => {
+      const span = document.createElement('span');
+      span.className = 'sentence';
+      span.textContent = sentence.trim() + (i !== sentences.length - 1 ? ' ' : '');
+      container.appendChild(span);
+      if (i !== sentences.length - 1) container.appendChild(document.createElement('br'));
+      if (i !== sentences.length - 2) container.appendChild(document.createElement('br'));
+    });
+
+    const spans = container.querySelectorAll('.sentence');
+    spans.forEach((span, i) => {
+      setTimeout(() => {
+        span.classList.add('visible');
+      }, i * 600);
+    });
+  </script>
 
 </body>
 </html>

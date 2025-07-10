@@ -1,143 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brilliant Researchers Africa</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brilliant Researchers Africa</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      overflow-x: hidden;
+    }
 
-        header {
-            background-color: #003366;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
+    header {
+      background-color: #003366;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      user-select: none;
+      animation: fadeInDown 1s ease forwards;
+    }
 
-        header img {
-            width: 120px;
-            height: auto;
-            display: block;
-            margin: 0 auto 10px auto;
-        }
+    header img {
+      width: 120px;
+      height: auto;
+      display: block;
+      margin: 0 auto 10px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      animation: fadeIn 1.5s ease forwards;
+    }
 
-        nav {
-            background-color: #004080;
-            padding: 10px;
-            text-align: center;
-        }
+    nav {
+      background-color: #004080;
+      padding: 10px;
+      text-align: center;
+      user-select: none;
+      animation: fadeInDown 1s ease forwards;
+      animation-delay: 0.5s;
+      opacity: 0;
+    }
 
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+      position: relative;
+    }
 
-        section {
-            padding: 40px 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
+    nav a.active, nav a:hover, nav a:focus {
+      color: #ffcc00;
+      outline: none;
+    }
 
-        h2 {
-            color: #004080;
-            border-bottom: 2px solid #004080;
-            padding-bottom: 10px;
-        }
+    nav a.active::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 3px;
+      background: #ffcc00;
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      border-radius: 2px;
+      animation: slideIn 0.3s ease forwards;
+    }
 
-        .pillar-list {
-            margin-top: 20px;
-        }
+    main {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: 40px auto;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      transform: translateY(40px);
+    }
 
-        .pillar-item {
-            background-color: #ffffff;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-left: 5px solid #004080;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
+    section {
+      margin-bottom: 50px;
+    }
 
-        .slideshow-container {
-            max-width: 1000px;
-            position: relative;
-            margin: 20px auto;
-        }
+    h2 {
+      color: #004080;
+      border-bottom: 2px solid #004080;
+      padding-bottom: 10px;
+      user-select: none;
+      animation: fadeInLeft 1s ease forwards;
+      opacity: 0;
+      transform: translateX(-30px);
+    }
 
-        .mySlides {
-            display: none;
-            width: 100%;
-            border: 2px solid #004080;
-        }
+    section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      animation: fadeIn 1.2s ease forwards;
+      opacity: 0;
+      animation-delay: 0.3s;
+    }
 
-        footer {
-            background-color: #003366;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-    </style>
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: 20px auto;
+      border: 2px solid #004080;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      animation: fadeIn 1.5s ease forwards;
+      opacity: 0;
+      transform: translateY(40px);
+      animation-delay: 0.5s;
+    }
+
+    .mySlides {
+      display: none;
+      width: 100%;
+      border-radius: 10px;
+      user-select: none;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: 45px;
+      height: 45px;
+      padding: 8px 12px;
+      color: white;
+      font-weight: bold;
+      font-size: 28px;
+      background-color: rgba(0,0,0,0.4);
+      border-radius: 50%;
+      user-select: none;
+      transform: translateY(-50%);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    }
+
+    .next {
+      right: 15px;
+    }
+
+    .prev {
+      left: 15px;
+    }
+
+    .prev:hover, .next:hover,
+    .prev:focus, .next:focus {
+      background-color: rgba(0,0,0,0.7);
+      outline: none;
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      user-select: none;
+      font-size: 14px;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {opacity: 0;}
+      100% {opacity: 1;}
+    }
+
+    @keyframes slideIn {
+      from {width: 0;}
+      to {width: 100%;}
+    }
+  </style>
 </head>
 <body>
 
-<header>
-    <img src="12.jpeg" alt="Brilliant Researchers Africa Logo">
+  <!-- HEADER -->
+  <header>
+    <img src="12.jpeg" alt="Brilliant Researchers Africa Logo" />
     <h1>Brilliant Researchers Africa</h1>
     <p>Empowering African Innovation Through Applied Scientific Research</p>
-</header>
+  </header>
 
-<nav>
-    <a href="about.html">About</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About US</a>
     <a href="values.html">Core Values</a>
-    <a href="vision.html">Vision</a>
-    <a href="mission.html">Mission</a>
-    <a href="pillars.html">Pillars</a>
-    <a href="contact.html">Contact</a>
-</nav>
+    <a href="vision.html" class="active"> OUR Vision</a>
+    <a href="mission.html"> OUR Mission</a>
+    <a href="pillars.html"> OUR Pillars</a>
+    <a href="contact.html">Contact US</a>
+  </nav>
 
-<section>
-    <h2>Welcome</h2>
-    <p>
+  <!-- MAIN CONTENT -->
+  <main>
+    <section>
+      <h2>Welcome</h2>
+      <p>
         Welcome to <strong>Brilliant Researchers Africa (BRA)</strong>, a pioneering hub for scientific excellence, collaboration, and innovation across the African continent.
-        We are dedicated to nurturing a research-driven culture that addresses real-world challenges while promoting sustainable development.
-    </p>
-    <p>
+      </p>
+      <p>
         Our platform connects aspiring researchers, professionals, and institutions, creating a vibrant ecosystem where ideas flourish and impact is measurable.
-        Whether you're a student, academic, or industry leader, BRA is your space to grow, share, and transform the future of Africa through applied research.
-    </p>
+      </p>
+    </section>
 
-    <h2>Our Activities</h2>
-    <div class="slideshow-container">
-        <img class="mySlides" src="13.jpg" alt="Slide 1">
-        <img class="mySlides" src="14.jpg" alt="Slide 2">
-        <img class="mySlides" src="15.jpg" alt="Slide 3">
-    </div>
-</section>
+    <section>
+      <h2>Our Activities</h2>
+      <div class="slideshow-container" id="slideshow">
+        <img class="mySlides" src="13.jpg" alt="Slide 1" />
+        <img class="mySlides" src="14.jpg" alt="Slide 2" />
+        <img class="mySlides" src="15.jpg" alt="Slide 3" />
 
-<footer>
+        <a class="prev" href="#" aria-label="Previous Slide" role="button">&#10094;</a>
+        <a class="next" href="#" aria-label="Next Slide" role="button">&#10095;</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
     <p>&copy; 2025 Brilliant Researchers Africa. All rights reserved.</p>
-</footer>
+  </footer>
 
-<script>
+  <!-- JAVASCRIPT -->
+  <script>
+    // Welcome Alert
+    window.onload = function () {
+      alert("Welcome to Brilliant Researchers Africa!");
+    };
+
+    // Highlight nav link based on current URL
+    const navLinks = document.querySelectorAll("nav a");
+    const currentPage = window.location.pathname.split("/").pop();
+
+    navLinks.forEach(link => {
+      if (link.getAttribute("href") === currentPage) {
+        link.classList.add("active");
+      }
+      // Also add click event for SPA-like behavior (optional)
+      link.addEventListener("click", function () {
+        navLinks.forEach(l => l.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+
+    // Slideshow logic
     let slideIndex = 0;
-    showSlides();
+    const slides = document.getElementsByClassName("mySlides");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
+    let slideInterval;
 
-    function showSlides() {
-        const slides = document.getElementsByClassName("mySlides");
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) { slideIndex = 1; }
-        slides[slideIndex - 1].style.display = "block";
-        setTimeout(showSlides, 3000); // 3 seconds
+    function showSlide(n) {
+      if (n >= slides.length) slideIndex = 0;
+      else if (n < 0) slideIndex = slides.length - 1;
+      else slideIndex = n;
+
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+
+      slides[slideIndex].style.display = "block";
+      slides[slideIndex].style.animation = "fadeIn 1s ease";
     }
-</script>
+
+    function nextSlide() {
+      showSlide(slideIndex + 1);
+    }
+
+    function prevSlide() {
+      showSlide(slideIndex - 1);
+    }
+
+    function startSlideshow() {
+      slideInterval = setInterval(nextSlide, 3000);
+    }
+
+    function stopSlideshow() {
+      clearInterval(slideInterval);
+    }
+
+    prevBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      prevSlide();
+      stopSlideshow();
+      startSlideshow();
+    });
+
+    nextBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      nextSlide();
+      stopSlideshow();
+      startSlideshow();
+    });
+
+    // Pause slideshow on hover
+    const slideshowContainer = document.getElementById("slideshow");
+    slideshowContainer.addEventListener("mouseenter", stopSlideshow);
+    slideshowContainer.addEventListener("mouseleave", startSlideshow);
+
+    // Initialize
+    showSlide(slideIndex);
+    startSlideshow();
+  </script>
 
 </body>
 </html>
